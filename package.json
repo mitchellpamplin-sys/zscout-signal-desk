@@ -1,0 +1,24 @@
+{
+  "name": "zscout-signal-desk",
+  "version": "1.0.0",
+  "description": "Open-source Zora-on-Base scout signal desk + Base Builder Code (ERC-8021) attribution helper for agents. Built on Base by @zscout.",
+  "type": "module",
+  "bin": {
+    "zscout-digest": "./bin/zscout-digest.mjs",
+    "zscout-builder-code": "./bin/register-builder-code.mjs"
+  },
+  "scripts": {
+    "digest": "node ./bin/zscout-digest.mjs",
+    "builder-code": "node ./bin/register-builder-code.mjs",
+    "demo": "node ./bin/zscout-digest.mjs --demo",
+    "start": "npx --yes serve public -p 4173"
+  },
+  "keywords": ["base", "zora", "builder-codes", "erc-8021", "scout", "zscout", "agent"],
+  "author": "@zscout",
+  "license": "MIT",
+  "engines": {"node": ">=18"},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchellpamplin-sys/zscout-signal-desk"
+  }
+}

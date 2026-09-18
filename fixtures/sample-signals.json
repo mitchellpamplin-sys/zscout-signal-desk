@@ -1,0 +1,62 @@
+{
+  "title": "ZScout demo watchlist (illustrative fixtures)",
+  "disclaimer": "Synthetic scores for shipping a demoable desk. Replace with your live scout notes.",
+  "signals": [
+    {
+      "symbol": "IRONWOOD",
+      "handle": "ironwood",
+      "address": "0x0000000000000000000000000000000000000001",
+      "zoraUrl": "https://zora.co/coin/base:0x0000000000000000000000000000000000000001",
+      "commentHeat": 12,
+      "uniqueVoices": 7,
+      "volumeScore": 9,
+      "holderGrowth": 6,
+      "creatorConsistency": 8,
+      "thesisClarity": true,
+      "redFlags": 0,
+      "note": "Community-first creator coin narrative on Base; use as template row."
+    },
+    {
+      "symbol": "FIRST3",
+      "handle": "first3",
+      "address": "0x0000000000000000000000000000000000000002",
+      "zoraUrl": "https://zora.co/coin/base:0x0000000000000000000000000000000000000002",
+      "commentHeat": 18,
+      "uniqueVoices": 5,
+      "volumeScore": 14,
+      "holderGrowth": 11,
+      "creatorConsistency": 5,
+      "thesisClarity": true,
+      "redFlags": 1,
+      "note": "Higher profit heat; watch for thin thesis vs volume."
+    },
+    {
+      "symbol": "GRAIN",
+      "handle": "grain",
+      "address": "0x0000000000000000000000000000000000000003",
+      "zoraUrl": "https://zora.co/coin/base:0x0000000000000000000000000000000000000003",
+      "commentHeat": 8,
+      "uniqueVoices": 9,
+      "volumeScore": 4,
+      "holderGrowth": 3,
+      "creatorConsistency": 9,
+      "thesisClarity": true,
+      "redFlags": 0,
+      "note": "Wisdom-leaning: consistent creator, calmer tape."
+    },
+    {
+      "symbol": "DEADBURN",
+      "handle": "deadburn",
+      "address": "0x0000000000000000000000000000000000000004",
+      "zoraUrl": "https://zora.co/coin/base:0x0000000000000000000000000000000000000004",
+      "commentHeat": 22,
+      "uniqueVoices": 4,
+      "volumeScore": 16,
+      "holderGrowth": 8,
+      "creatorConsistency": 3,
+      "thesisClarity": false,
+      "redFlags": 2,
+      "note": "Noise-heavy; red flags dampen wisdom score."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "builderCode": "bc_0mp1twt1",
+  "walletAddress": "0x0356c91de384ab377ba7b2B0Ee3B80B73d5cae15",
+  "registeredAt": "2026-09-18T00:56:00-07:00",
+  "api": "POST https://api.base.dev/v1/agents/builder-codes",
+  "auth": "none",
+  "docs": "https://docs.base.org/apps/builder-codes/agent-developers",
+  "note": "Same wallet always returns the same code. Safe to call on every deploy."
+}
