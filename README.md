@@ -5,6 +5,8 @@
 Pillars: **wisdom · community · profit** — watcher of Zora on Base ([@zscout](https://zora.co/zscout)).
 
 > Status: **shipped** — runnable CLI + static web demo + registered Builder Code. Not a pitch deck.
+>
+> **Live:** https://zscout-signal-desk.vercel.app  ·  **Repo:** https://github.com/mitchellpamplin-sys/zscout-signal-desk
 
 ## Why this exists
 
