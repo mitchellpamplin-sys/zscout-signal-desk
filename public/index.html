@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZScout Signal Desk — Built on Base</title>
+  <meta name="description" content="Open-source Zora-on-Base scout signal desk and Base Builder Code attribution helper by @zscout. Wisdom · Community · Profit." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07090f;
+      --panel: #101522;
+      --ink: #e8edf7;
+      --muted: #8b95a8;
+      --accent: #0052ff;
+      --wisdom: #7c9cff;
+      --community: #3ddc97;
+      --profit: #ffb020;
+      --line: #1c2436;
+      --danger: #ff5c7a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(0,82,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 0%, rgba(61,220,151,.12), transparent 55%),
+        var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+    header, main, footer { max-width: 980px; margin: 0 auto; padding: 1.25rem; }
+    h1, h2, h3 { font-family: Syne, system-ui, sans-serif; letter-spacing: -0.02em; margin: 0 0 .5rem; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .badge {
+      display: inline-flex; gap: .4rem; align-items: center;
+      border: 1px solid var(--line); background: rgba(0,82,255,.15);
+      color: #b9ccff; border-radius: 999px; padding: .25rem .7rem; font-size: .75rem;
+    }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), transparent), var(--panel);
+      border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem;
+    }
+    .muted { color: var(--muted); font-size: .85rem; line-height: 1.45; }
+    .pillars span { display: inline-block; margin-right: .5rem; font-weight: 600; }
+    .w { color: var(--wisdom); } .c { color: var(--community); } .p { color: var(--profit); }
+    table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    th, td { text-align: left; padding: .55rem .4rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; }
+    code, .mono { font-family: inherit; }
+    .codebox {
+      background: #0a0d16; border: 1px solid var(--line); border-radius: 12px;
+      padding: .85rem; overflow-x: auto; white-space: pre-wrap; word-break: break-all; font-size: .75rem;
+    }
+    button, .btn {
+      appearance: none; border: 0; border-radius: 10px; padding: .65rem 1rem;
+      background: var(--accent); color: white; font: inherit; font-weight: 600; cursor: pointer;
+    }
+    button.secondary { background: transparent; border: 1px solid var(--line); color: var(--ink); }
+    .row { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: .8rem 0; }
+    input {
+      flex: 1; min-width: 220px; background: #0a0d16; border: 1px solid var(--line);
+      color: var(--ink); border-radius: 10px; padding: .65rem .8rem; font: inherit;
+    }
+    a { color: #9cbcff; }
+    footer { color: var(--muted); font-size: .75rem; padding-bottom: 2.5rem; }
+    .tag { font-size: .7rem; padding: .15rem .45rem; border-radius: 6px; border: 1px solid var(--line); }
+    .tag.wisdom { color: var(--wisdom); } .tag.community { color: var(--community); } .tag.profit { color: var(--profit); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">Built on Base · chainId 8453 · @zscout</div>
+    <h1 style="margin-top:.8rem">ZScout Signal Desk</h1>
+    <p class="muted">
+      A shipped, open-source scout desk for Zora creator-coin signals on Base —
+      scored through <span class="w">wisdom</span>, <span class="c">community</span>, and <span class="p">profit</span> —
+      plus a ready Base Builder Code (ERC-8021) attribution helper for AI agents.
+    </p>
+    <div class="row">
+      <input id="wallet" value="0x0356c91de384ab377ba7b2B0Ee3B80B73d5cae15" aria-label="Base wallet" />
+      <button id="refresh">Refresh onchain</button>
+      <button class="secondary" id="copySuffix">Copy dataSuffix</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" style="margin-bottom:1rem">
+      <article class="card">
+        <h3>Agent wallet</h3>
+        <p class="muted" id="walletMeta">Loading Base RPC…</p>
+      </article>
+      <article class="card">
+        <h3>Builder Code</h3>
+        <p><code id="bc">bc_0mp1twt1</code></p>
+        <p class="muted">Registered via free Base.dev API. Same wallet → same code.</p>
+      </article>
+      <article class="card pillars">
+        <h3>Pillars</h3>
+        <p><span class="w">Wisdom</span> thesis + consistency</p>
+        <p><span class="c">Community</span> unique voices</p>
+        <p><span class="p">Profit</span> volume as context</p>
+      </article>
+    </section>
+
+    <section class="card" style="margin-bottom:1rem">
+      <h2>Watchlist digest</h2>
+      <p class="muted">Demo fixtures ship with the repo so the desk is usable offline. Replace <code>fixtures/sample-signals.json</code> with your scout notes. Not financial advice.</p>
+      <div style="overflow-x:auto; margin-top:.6rem">
+        <table>
+          <thead>
+            <tr><th>Coin</th><th>W/C/P</th><th>Total</th><th>Bias</th><th>Note</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>ERC-8021 attribution helper</h2>
+      <p class="muted">Append this suffix to agent calldata so Base indexers credit @zscout on <a href="https://base.dev" target="_blank" rel="noreferrer">base.dev</a>.</p>
+      <div class="codebox" id="suffixBox"></div>
+      <p class="muted" style="margin-top:.7rem">CLI: <code>node bin/zscout-digest.mjs</code> · <code>node bin/register-builder-code.mjs</code></p>
+    </section>
+  </main>
+
+  <footer>
+    MIT · Wisdom · Community · Profit · Watcher of Zora on Base ·
+    No wallet funds spent building this ·
+    <a href="https://docs.base.org/apps/builder-codes/agent-developers">Builder Codes docs</a>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
